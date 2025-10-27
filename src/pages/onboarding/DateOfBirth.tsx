@@ -8,7 +8,8 @@ import { useOnboarding } from "@/contexts/OnboardingContext";
 export const DateOfBirth = () => {
   const navigate = useNavigate();
   const { data, updateData, setCurrentStep } = useOnboarding();
-  const [dob, setDob] = useState(data.dob);
+  const [displayValue, setDisplayValue] = useState("");
+  const [isoDate, setIsoDate] = useState(data.dob);
   const [isValid, setIsValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -17,13 +18,13 @@ export const DateOfBirth = () => {
   }, [setCurrentStep]);
 
   useEffect(() => {
-    if (!dob) {
+    if (!isoDate) {
       setIsValid(false);
       setErrorMessage("");
       return;
     }
 
-    const dobDate = new Date(dob);
+    const dobDate = new Date(isoDate);
     const today = new Date();
     const age = today.getFullYear() - dobDate.getFullYear();
     const monthDiff = today.getMonth() - dobDate.getMonth();
@@ -43,12 +44,12 @@ export const DateOfBirth = () => {
 
     setIsValid(true);
     setErrorMessage("");
-  }, [dob]);
+  }, [isoDate]);
 
   const handleSubmit = () => {
     if (!isValid) return;
 
-    updateData({ dob });
+    updateData({ dob: isoDate });
     setTimeout(() => {
       navigate("/onboarding/otp");
     }, 300);
@@ -71,25 +72,38 @@ export const DateOfBirth = () => {
             type="text"
             inputMode="numeric"
             placeholder="DD/MM/YYYY"
-            value={dob}
+            value={displayValue}
             onChange={(e) => {
               let value = e.target.value.replace(/\D/g, '');
-              if (value.length >= 2) value = value.slice(0, 2) + '/' + value.slice(2);
-              if (value.length >= 5) value = value.slice(0, 5) + '/' + value.slice(5, 9);
-              if (value.length <= 10) {
-                const parts = value.split('/');
-                if (parts.length === 3 && parts[0].length === 2 && parts[1].length === 2 && parts[2].length === 4) {
-                  const isoDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
-                  setDob(isoDate);
-                } else {
-                  setDob(value);
-                }
+              
+              // Limit to 8 digits (DDMMYYYY)
+              if (value.length > 8) value = value.slice(0, 8);
+              
+              // Format as DD/MM/YYYY
+              let formatted = value;
+              if (value.length >= 2) {
+                formatted = value.slice(0, 2) + '/' + value.slice(2);
+              }
+              if (value.length >= 4) {
+                formatted = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4);
+              }
+              
+              setDisplayValue(formatted);
+              
+              // Only set ISO date when we have complete date
+              if (value.length === 8) {
+                const day = value.slice(0, 2);
+                const month = value.slice(2, 4);
+                const year = value.slice(4, 8);
+                setIsoDate(`${year}-${month}-${day}`);
+              } else {
+                setIsoDate("");
               }
             }}
             onKeyPress={handleKeyPress}
             maxLength={10}
-            className={`text-lg h-14 rounded-2xl border-2 transition-all duration-300 text-center ${
-              dob.length === 0
+            className={`text-lg h-14 rounded-2xl transition-all duration-300 text-center ${
+              displayValue.length === 0
                 ? "border-input"
                 : isValid
                 ? "border-success bg-success/5 animate-success-pulse"

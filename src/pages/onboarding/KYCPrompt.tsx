@@ -12,6 +12,7 @@ export const KYCPrompt = () => {
   const [micChecked, setMicChecked] = useState(false);
   const [internetChecked, setInternetChecked] = useState(false);
   const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
+  const [isVerified, setIsVerified] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -35,11 +36,11 @@ export const KYCPrompt = () => {
 
   const handleAllow = () => {
     if (allChecked) {
-      // Stop camera stream before navigating
+      // Stop camera stream
       if (cameraStream) {
         cameraStream.getTracks().forEach(track => track.stop());
       }
-      alert("KYC process would start here with camera and document verification");
+      setIsVerified(true);
     }
   };
 
@@ -54,7 +55,29 @@ export const KYCPrompt = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
-      <div className="w-full max-w-md space-y-8 animate-slide-in">
+      {isVerified ? (
+        <div className="w-full max-w-md space-y-8 text-center animate-fade-in">
+          <div className="flex justify-center mb-6">
+            <div className="h-24 w-24 rounded-full bg-success/20 flex items-center justify-center">
+              <svg className="h-12 w-12 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+          </div>
+          <h1 className="text-3xl font-bold text-foreground">You are verified ✓</h1>
+          <p className="text-muted-foreground leading-relaxed">
+            Your KYC verification has been completed successfully. You can now proceed with your account setup.
+          </p>
+          <Button 
+            size="lg" 
+            onClick={() => navigate("/")} 
+            className="w-full"
+          >
+            Continue to Dashboard
+          </Button>
+        </div>
+      ) : (
+        <div className="w-full max-w-md space-y-8 animate-slide-in">
         <div className="text-center space-y-3">
           <div className="flex justify-center mb-6">
             <div className="h-20 w-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
@@ -156,7 +179,8 @@ export const KYCPrompt = () => {
             Cancel
           </Button>
         </div>
-      </div>
+        </div>
+      )}
     </div>
   );
 };
