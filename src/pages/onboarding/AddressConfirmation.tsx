@@ -22,8 +22,17 @@ export const AddressConfirmation = () => {
   return (
     <StepContainer
       title="Confirm your address"
-      subtitle="We'll send your Debit Card and Cheque Book to this address"
+      // subtitle="We'll send your Debit Card and Cheque Book to this address"
     >
+       <div className="p-4 rounded-2xl border border-success" style={{ backgroundColor: '#0E945C' }}>
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: '#FFFFFF' }} />
+            <p className="text-sm font-medium leading-relaxed" style={{ color: '#FFFFFF' }}>
+              Address verified. Your Debit Card and Cheque Book will be sent to your registered
+              address.
+            </p>
+          </div>
+        </div>
       <div className="space-y-6">
         <div className="flex items-center space-x-3 p-4 rounded-2xl border-2 border-input hover:border-primary/50 transition-all duration-300">
           <Checkbox
@@ -58,15 +67,7 @@ export const AddressConfirmation = () => {
           </div>
         </div>
 
-        <div className="p-4 rounded-2xl border border-success" style={{ backgroundColor: '#0E945C' }}>
-          <div className="flex items-start gap-3">
-            <CheckCircle2 className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: '#FFFFFF' }} />
-            <p className="text-sm font-medium leading-relaxed" style={{ color: '#FFFFFF' }}>
-              Address verified. Your Debit Card and Cheque Book will be sent to your registered
-              address.
-            </p>
-          </div>
-        </div>
+       
 
         <Button size="lg" onClick={handleProceed} className="w-full">
           Proceed

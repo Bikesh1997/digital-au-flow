@@ -134,14 +134,14 @@ export const OTPVerification = () => {
           )}
         </div>
 
-        <Button
+        {/* <Button
           size="lg"
           onClick={() => handleVerify()}
           disabled={otp.some((digit) => !digit) || isVerifying}
           className="w-full"
         >
           {isVerifying ? "Verifying..." : "Verify OTP"}
-        </Button>
+        </Button> */}
       </div>
     </StepContainer>
   );

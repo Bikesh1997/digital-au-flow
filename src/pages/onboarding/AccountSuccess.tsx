@@ -45,25 +45,25 @@ export const AccountSuccess = () => {
         </div>
 
         {/* Account Card */}
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-card to-secondary/10 border border-border shadow-xl space-y-4">
+        <div className="p-6 rounded-2xl bg-[#6D266D] from-primary/10 via-card to-secondary/10 border border-border shadow-xl space-y-4">
           <div className="flex items-center gap-3 pb-4 border-b border-border">
             <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
               <span className="text-xl font-bold text-white">AU</span>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">AU Small Finance Bank</p>
-              <p className="font-semibold text-foreground">Digital Savings Account</p>
+              <p className="text-sm text-white">AU Small Finance Bank</p>
+              <p className="font-semibold text-white">Digital Savings Account</p>
             </div>
           </div>
 
           <div className="space-y-3">
             <div className="flex justify-between items-center">
-              <span className="text-sm text-muted-foreground">Customer ID</span>
-              <span className="font-mono font-semibold text-foreground">{data.customerId}</span>
+              <span className="text-sm text-white">Customer ID</span>
+              <span className="font-mono font-semibold text-white">{data.customerId}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-sm text-muted-foreground">Account Number</span>
-              <span className="font-mono font-semibold text-foreground">{data.accountNumber}</span>
+              <span className="text-sm text-white">Account Number</span>
+              <span className="font-mono font-semibold text-white">{data.accountNumber}</span>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export const AccountSuccess = () => {
             {/* Agent Avatar */}
             <div className="flex justify-center">
               <Avatar className="h-20 w-20 border-2 border-primary">
-                <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=agent" alt="Bank Representative" />
+                <AvatarImage src="/agent.png" alt="Bank Representative" />
                 <AvatarFallback>BR</AvatarFallback>
               </Avatar>
             </div>

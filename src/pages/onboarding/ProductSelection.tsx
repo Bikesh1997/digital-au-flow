@@ -47,11 +47,11 @@ export const ProductSelection = () => {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
-              <span>Zero minimum balance required</span>
+              <span><b>Zero </b> minimum balance required</span>
             </li>
             <li className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
-              <span>Free cash deposits up to ₹1 Lakh</span>
+              <span>minimum balance required <b>10,000 </b></span>
             </li>
             <li className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
@@ -85,7 +85,7 @@ export const ProductSelection = () => {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
-              <span>Premium benefits worth ₹300</span>
+              <span>minimum balance required <b>25,000 </b></span>
             </li>
             <li className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
@@ -95,10 +95,7 @@ export const ProductSelection = () => {
               <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
               <span>Free cash deposits up to ₹2 Lakhs</span>
             </li>
-            <li className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
-              <span>₹10K average balance required</span>
-            </li>
+         
           </ul>
         </div>
 
