@@ -33,7 +33,6 @@ const App = () => (
               element={
                 <div className="min-h-screen flex flex-col">
                   <ProgressBar />
-                  <div className="flex-1 overflow-y-auto" style={{ marginTop: "68px" }}>
                     <Routes>
                       <Route path="mobile" element={<MobileVerification />} />
                       <Route path="aadhaar" element={<AadhaarVerification />} />
@@ -47,7 +46,6 @@ const App = () => (
                       <Route path="success" element={<AccountSuccess />} />
                       <Route path="kyc-prompt" element={<KYCPrompt />} />
                     </Routes>
-                  </div>
                 </div>
               }
             />
