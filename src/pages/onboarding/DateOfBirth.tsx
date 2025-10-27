@@ -51,7 +51,7 @@ export const DateOfBirth = () => {
 
     updateData({ dob: isoDate });
     setTimeout(() => {
-      navigate("/onboarding/otp");
+      navigate("/onboarding/address");
     }, 300);
   };
 

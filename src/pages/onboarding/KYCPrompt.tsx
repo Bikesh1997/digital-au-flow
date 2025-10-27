@@ -22,15 +22,25 @@ export const KYCPrompt = () => {
   const allChecked = cameraChecked && micChecked && internetChecked;
 
   const handleCameraAccess = async () => {
+    if (cameraChecked) return; // Prevent multiple calls
+    
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      const stream = await navigator.mediaDevices.getUserMedia({ 
+        video: { facingMode: 'user' },
+        audio: false 
+      });
       setCameraStream(stream);
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
       setCameraChecked(true);
+      
+      // Wait for next tick to ensure video element is ready
+      setTimeout(() => {
+        if (videoRef.current && stream) {
+          videoRef.current.srcObject = stream;
+        }
+      }, 100);
     } catch (error) {
       console.error("Camera access denied:", error);
+      alert("Camera access is required for KYC verification. Please allow camera access and try again.");
     }
   };
 
