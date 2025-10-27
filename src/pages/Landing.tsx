@@ -23,7 +23,7 @@ const Landing = () => {
         <div className="max-w-lg mx-auto text-center">
           <h1 className="text-3xl font-bold mb-3">Welcome to AU Finance</h1>
           <p className="text-secondary-foreground/90">
-            Your journey to smart banking starts here, quick setup, secure and safe.
+            Quick setup, Secure and Safe.
           </p>
         </div>
       </div>
@@ -63,7 +63,7 @@ const Landing = () => {
         </Card>
 
         {/* Features */}
-        <div className="mt-8 space-y-3 text-sm text-muted-foreground">
+        {/* <div className="mt-8 space-y-3 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-success rounded-full" />
             <span>Zero balance savings account</span>
@@ -76,7 +76,7 @@ const Landing = () => {
             <div className="w-1.5 h-1.5 bg-success rounded-full" />
             <span>Digital account opening in minutes</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

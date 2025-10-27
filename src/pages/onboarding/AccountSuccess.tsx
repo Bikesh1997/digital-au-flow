@@ -101,7 +101,7 @@ export const AccountSuccess = () => {
         </div>
 
         {/* Features */}
-        <div className="grid grid-cols-2 gap-3">
+        {/* <div className="grid grid-cols-2 gap-3">
           <div className="p-4 rounded-2xl bg-card border border-border text-center space-y-2">
             <CreditCard className="h-6 w-6 text-primary mx-auto" />
             <p className="text-xs font-medium text-muted-foreground">Free Debit Card</p>
@@ -110,7 +110,7 @@ export const AccountSuccess = () => {
             <Shield className="h-6 w-6 text-success mx-auto" />
             <p className="text-xs font-medium text-muted-foreground">100% Secure</p>
           </div>
-        </div>
+        </div> */}
 
         {/* CTA */}
         <Button 

@@ -77,7 +77,7 @@ export const MobileVerification = () => {
           disabled={!isValid || isLoading}
           className="w-full"
         >
-          {isLoading ? "Sending OTP..." : "Send OTP"}
+          {isLoading ? "Continue..." : "Continue"}
         </Button>
 
         <p className="text-sm text-muted-foreground text-center">
