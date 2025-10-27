@@ -1,16 +1,11 @@
-import { cn } from "@/lib/utils";
+import { useOnboarding } from "@/contexts/OnboardingContext";
 
-interface ProgressBarProps {
-  currentStep: number;
-  totalSteps: number;
-  className?: string;
-}
-
-export const ProgressBar = ({ currentStep, totalSteps, className }: ProgressBarProps) => {
-  const progress = (currentStep / totalSteps) * 100;
+export const ProgressBar = () => {
+  const { currentStep, totalSteps } = useOnboarding();
+  const progress = ((currentStep + 1) / totalSteps) * 100;
 
   return (
-    <div className={cn("w-full h-2 bg-accent rounded-full overflow-hidden", className)}>
+    <div className="fixed top-0 left-0 w-full h-2 bg-muted z-50 shadow-sm">
       <div
         className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-500 ease-out"
         style={{ width: `${progress}%` }}

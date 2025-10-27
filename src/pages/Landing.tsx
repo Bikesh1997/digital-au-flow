@@ -1,66 +1,94 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Landmark } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import { ArrowRight, CheckCircle2, Shield, Zap } from "lucide-react";
 
 const Landing = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header with Logo */}
-      <header className="p-6">
-        <img src={logo} alt="AU Small Finance Bank" className="h-12" />
-      </header>
-
-      {/* Hero Section */}
-      <div className="bg-secondary px-6 py-12 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-3">
-          Welcome to AU Finance
-        </h1>
-        <p className="text-secondary-foreground/90 text-lg">
-          Your journey to smart banking starts here
-        </p>
-        <p className="text-secondary-foreground/80 text-sm mt-2">
-          Quick setup • Secure • Safe
-        </p>
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      {/* Header Section */}
+      <div className="bg-[#6D266D] text-white py-12 px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-3 animate-fade-in">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Welcome to AU Finance
+          </h1>
+          <p className="text-white/90 text-lg">
+            Your journey to smart banking starts here. Quick setup, secure and safe.
+          </p>
+        </div>
       </div>
 
-      {/* Savings Account Card */}
-      <div className="px-6 -mt-8 pb-12">
-        <Card className="p-6 shadow-xl border-0 bg-card animate-slide-in">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <h2 className="text-2xl font-bold text-foreground mb-2">
-                Savings Account
-              </h2>
-              <p className="text-muted-foreground mb-6">
-                Start saving for your future today
-              </p>
+      {/* Main Content */}
+      <div className="max-w-2xl mx-auto px-6 py-12">
+        <div className="bg-card border border-border rounded-3xl p-8 shadow-xl animate-slide-in">
+          <div className="flex items-start gap-6">
+            <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 shadow-lg">
+              <span className="text-2xl">🏦</span>
             </div>
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <Landmark className="w-6 h-6 text-primary" />
+            <div className="flex-1 space-y-4">
+              <div>
+                <h2 className="text-2xl font-bold text-foreground mb-2">
+                  Savings Account
+                </h2>
+                <p className="text-muted-foreground">
+                  Start saving for your future today
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Button
+                  size="lg"
+                  onClick={() => navigate("/onboarding/mobile")}
+                  className="flex-1 gap-2"
+                >
+                  Open Account
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="flex-1"
+                >
+                  Know More
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+          <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border hover:shadow-lg transition-all duration-300">
+            <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <Zap className="h-6 w-6 text-primary" />
+            </div>
+            <div className="text-left">
+              <p className="font-semibold text-foreground">5-Minute Setup</p>
+              <p className="text-sm text-muted-foreground">Quick & hassle-free</p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button
-              size="lg"
-              className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-              onClick={() => navigate("/onboarding")}
-            >
-              Open Account
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="flex-1 border-2"
-            >
-              Know More
-            </Button>
+          <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border hover:shadow-lg transition-all duration-300">
+            <div className="h-12 w-12 rounded-xl bg-success/10 flex items-center justify-center flex-shrink-0">
+              <Shield className="h-6 w-6 text-success" />
+            </div>
+            <div className="text-left">
+              <p className="font-semibold text-foreground">100% Secure</p>
+              <p className="text-sm text-muted-foreground">Bank-grade security</p>
+            </div>
           </div>
-        </Card>
+
+          <div className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border hover:shadow-lg transition-all duration-300">
+            <div className="h-12 w-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+              <CheckCircle2 className="h-6 w-6 text-secondary" />
+            </div>
+            <div className="text-left">
+              <p className="font-semibold text-foreground">Zero Balance</p>
+              <p className="text-sm text-muted-foreground">No minimum required</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
