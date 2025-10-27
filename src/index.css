@@ -21,7 +21,7 @@ All colors MUST be HSL.
     --primary: 21 90% 52%; /* #EA671C - Orange */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 291 45% 30%; /* #6D266D - Deep Purple */
+    --secondary: 291 45% 30%; /* #6D266D - Deep Purple - Progress Bar */
     --secondary-foreground: 0 0% 100%;
 
     --success: 158 82% 32%; /* #0E945C - Green */

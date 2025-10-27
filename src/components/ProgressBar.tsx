@@ -61,31 +61,20 @@ export const ProgressBar = () => {
             <ChevronLeft className="h-5 w-5 text-foreground" />
           </button>
           
-          {/* Steps Indicator */}
-          <div className="flex items-center gap-2 flex-1">
-            {steps.map((step, index) => (
-              <div key={step.number} className="flex items-center flex-1">
-                <div className="flex items-center gap-2 flex-1">
-                  <span className={`text-xs font-medium transition-colors ${
-                    step.number <= currentStep ? 'text-foreground' : 'text-muted-foreground'
-                  }`}>
-                    {step.label}
-                  </span>
-                </div>
-                {index < steps.length - 1 && (
-                  <div className="relative h-2 flex-1 mx-2 rounded-full bg-muted overflow-hidden">
-                    <div 
-                      className="absolute top-0 left-0 h-full bg-primary transition-all duration-500 ease-out rounded-full"
-                      style={{ 
-                        width: step.number < currentStep 
-                          ? '100%' 
-                          : step.number === currentStep 
-                            ? `${(progressPercentage % 33.33) / 33.33 * 100}%`
-                            : '0%'
-                      }}
-                    />
-                  </div>
-                )}
+          {/* Steps Indicator - 3 separate bars */}
+          <div className="flex items-center gap-3 flex-1">
+            {steps.map((step) => (
+              <div key={step.number} className="relative h-2 flex-1 rounded-full bg-muted overflow-hidden">
+                <div 
+                  className="absolute top-0 left-0 h-full bg-secondary transition-all duration-500 ease-out rounded-full"
+                  style={{ 
+                    width: step.number < currentStep 
+                      ? '100%' 
+                      : step.number === currentStep 
+                        ? `${(progressPercentage % 33.33) / 33.33 * 100}%`
+                        : '0%'
+                  }}
+                />
               </div>
             ))}
           </div>
