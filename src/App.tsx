@@ -31,27 +31,24 @@ const App = () => (
             <Route
               path="/onboarding/*"
               element={
-                <>
+                <div className="min-h-screen flex flex-col">
                   <ProgressBar />
-
-                  <div style={{ marginTop: "35px" }}>
-
-                  <Routes>
-                    <Route path="mobile" element={<MobileVerification />} />
-                    <Route path="aadhaar" element={<AadhaarVerification />} />
-                    <Route path="pan" element={<PANVerification />} />
-                    <Route path="dob" element={<DateOfBirth />} />
-                    <Route path="otp" element={<OTPVerification />} />
-                    <Route path="address" element={<AddressConfirmation />} />
-                    <Route path="basic-details" element={<BasicDetails />} />
-                    <Route path="product-selection" element={<ProductSelection />} />
-                    <Route path="nominee" element={<NomineeAndTerms />} />
-                    <Route path="success" element={<AccountSuccess />} />
-                    <Route path="kyc-prompt" element={<KYCPrompt />} />
-                  </Routes>
+                  <div className="flex-1 overflow-y-auto" style={{ marginTop: "68px" }}>
+                    <Routes>
+                      <Route path="mobile" element={<MobileVerification />} />
+                      <Route path="aadhaar" element={<AadhaarVerification />} />
+                      <Route path="pan" element={<PANVerification />} />
+                      <Route path="dob" element={<DateOfBirth />} />
+                      <Route path="otp" element={<OTPVerification />} />
+                      <Route path="address" element={<AddressConfirmation />} />
+                      <Route path="basic-details" element={<BasicDetails />} />
+                      <Route path="product-selection" element={<ProductSelection />} />
+                      <Route path="nominee" element={<NomineeAndTerms />} />
+                      <Route path="success" element={<AccountSuccess />} />
+                      <Route path="kyc-prompt" element={<KYCPrompt />} />
+                    </Routes>
                   </div>
-
-                </>
+                </div>
               }
             />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
