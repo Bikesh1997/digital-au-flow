@@ -79,7 +79,7 @@ export const OTPVerification = () => {
       }
 
       setTimeout(() => {
-        navigate("/onboarding/pan");
+        navigate("/onboarding/address");
       }, 800);
     }, 1500);
   };
