@@ -89,11 +89,11 @@ export const KYCPrompt = () => {
       ) : (
         <div className="w-full max-w-md space-y-8 animate-slide-in">
         <div className="text-center space-y-3">
-          <div className="flex justify-center mb-6">
+          {/* <div className="flex justify-center mb-6">
             <div className="h-20 w-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
               <CreditCard className="h-10 w-10 text-primary" />
             </div>
-          </div>
+          </div> */}
           <h1 className="text-3xl font-bold text-foreground">Before we begin your KYC</h1>
           <p className="text-muted-foreground leading-relaxed">
             To complete your KYC verification, we'll need access to certain features on your device.

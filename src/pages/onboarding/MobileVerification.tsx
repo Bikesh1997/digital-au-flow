@@ -53,7 +53,7 @@ export const MobileVerification = () => {
             </div>
             <Input
               type="tel"
-              placeholder="Enter mobile number"
+              placeholder="Enter Aadhar-linked number"
                inputMode="numeric"
               value={mobile}
               onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}

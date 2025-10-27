@@ -88,7 +88,7 @@ export const PANVerification = () => {
           disabled={!isValid || isLoading}
           className="w-full"
         >
-          {isLoading ? "Validating..." : "Validate PAN"}
+          {isLoading ? "Continue..." : "Continue"}
         </Button>
 
         <p className="text-sm text-muted-foreground text-center">
