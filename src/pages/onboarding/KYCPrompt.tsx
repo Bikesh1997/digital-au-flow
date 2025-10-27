@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -11,6 +11,8 @@ export const KYCPrompt = () => {
   const [cameraChecked, setCameraChecked] = useState(false);
   const [micChecked, setMicChecked] = useState(false);
   const [internetChecked, setInternetChecked] = useState(false);
+  const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setCurrentStep(8);
@@ -18,12 +20,37 @@ export const KYCPrompt = () => {
 
   const allChecked = cameraChecked && micChecked && internetChecked;
 
+  const handleCameraAccess = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      setCameraStream(stream);
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+      }
+      setCameraChecked(true);
+    } catch (error) {
+      console.error("Camera access denied:", error);
+    }
+  };
+
   const handleAllow = () => {
     if (allChecked) {
-      // In a real app, this would request permissions and start KYC flow
+      // Stop camera stream before navigating
+      if (cameraStream) {
+        cameraStream.getTracks().forEach(track => track.stop());
+      }
       alert("KYC process would start here with camera and document verification");
     }
   };
+
+  useEffect(() => {
+    return () => {
+      // Cleanup camera stream on unmount
+      if (cameraStream) {
+        cameraStream.getTracks().forEach(track => track.stop());
+      }
+    };
+  }, [cameraStream]);
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -40,11 +67,24 @@ export const KYCPrompt = () => {
           </p>
         </div>
 
+        {/* Camera Preview */}
+        {cameraStream && (
+          <div className="rounded-2xl overflow-hidden border-2 border-success bg-card animate-fade-in">
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              muted
+              className="w-full aspect-video object-cover"
+            />
+          </div>
+        )}
+
         {/* Permissions List */}
         <div className="space-y-4">
           <div 
             className="p-4 rounded-2xl bg-card border border-border flex items-start gap-4 cursor-pointer hover:border-primary/50 transition-colors"
-            onClick={() => setCameraChecked(!cameraChecked)}
+            onClick={handleCameraAccess}
           >
             <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
               <Camera className="h-6 w-6 text-primary" />
@@ -55,8 +95,7 @@ export const KYCPrompt = () => {
             </div>
             <Checkbox
               checked={cameraChecked}
-              onCheckedChange={(checked) => setCameraChecked(checked as boolean)}
-              className="mt-1"
+              className="mt-1 pointer-events-none"
             />
           </div>
 
@@ -73,8 +112,7 @@ export const KYCPrompt = () => {
             </div>
             <Checkbox
               checked={micChecked}
-              onCheckedChange={(checked) => setMicChecked(checked as boolean)}
-              className="mt-1"
+              className="mt-1 pointer-events-none"
             />
           </div>
 
@@ -91,8 +129,7 @@ export const KYCPrompt = () => {
             </div>
             <Checkbox
               checked={internetChecked}
-              onCheckedChange={(checked) => setInternetChecked(checked as boolean)}
-              className="mt-1"
+              className="mt-1 pointer-events-none"
             />
           </div>
         </div>

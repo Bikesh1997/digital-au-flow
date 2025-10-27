@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { StepContainer } from "@/components/StepContainer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useOnboarding } from "@/contexts/OnboardingContext";
-import { toast } from "sonner";
 
 export const PANVerification = () => {
   const navigate = useNavigate();
@@ -12,6 +11,7 @@ export const PANVerification = () => {
   const [pan, setPan] = useState(data.pan || "");
   const [isValid, setIsValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setCurrentStep(2);
@@ -25,20 +25,26 @@ export const PANVerification = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toUpperCase().slice(0, 10);
     setPan(value);
+    
+    // Update input mode dynamically based on position
+    if (inputRef.current) {
+      const len = value.length;
+      if (len < 5 || len === 9) {
+        inputRef.current.inputMode = 'text';
+      } else if (len >= 5 && len < 9) {
+        inputRef.current.inputMode = 'numeric';
+      }
+    }
   };
 
   const handleSubmit = () => {
-    if (!isValid) {
-      toast.error("Please enter a valid PAN number");
-      return;
-    }
+    if (!isValid) return;
 
     setIsLoading(true);
     updateData({ pan });
 
     setTimeout(() => {
       setIsLoading(false);
-      toast.success("PAN verified successfully!");
       navigate("/onboarding/dob");
     }, 1000);
   };
@@ -57,12 +63,14 @@ export const PANVerification = () => {
       <div className="space-y-4">
         <div className="space-y-2">
           <Input
+            ref={inputRef}
             type="text"
             placeholder="AAAAA1111A"
             value={pan}
             onChange={handleChange}
             onKeyPress={handleKeyPress}
             maxLength={10}
+            inputMode="text"
             className={`text-lg h-14 rounded-2xl border-2 transition-all duration-300 text-center tracking-widest font-mono ${
               pan.length === 0
                 ? "border-input"

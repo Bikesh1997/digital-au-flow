@@ -12,7 +12,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useOnboarding } from "@/contexts/OnboardingContext";
-import { toast } from "sonner";
 
 export const BasicDetails = () => {
   const navigate = useNavigate();
@@ -49,10 +48,7 @@ export const BasicDetails = () => {
   };
 
   const handleSubmit = () => {
-    if (!isFormValid()) {
-      toast.error("Please fill all required fields correctly");
-      return;
-    }
+    if (!isFormValid()) return;
 
     updateData(formData);
     navigate("/onboarding/product-selection");

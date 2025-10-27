@@ -4,7 +4,6 @@ import { StepContainer } from "@/components/StepContainer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useOnboarding } from "@/contexts/OnboardingContext";
-import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
 
 export const OTPVerification = () => {
@@ -65,10 +64,7 @@ export const OTPVerification = () => {
 
   const handleVerify = (otpValue?: string) => {
     const otpString = otpValue || otp.join("");
-    if (otpString.length !== 6) {
-      toast.error("Please enter complete OTP");
-      return;
-    }
+    if (otpString.length !== 6) return;
 
     setIsVerifying(true);
     updateData({ otp: otpString });
@@ -82,10 +78,6 @@ export const OTPVerification = () => {
         successElement.classList.remove("hidden");
       }
 
-      toast.success("Mobile Verified Successfully!", {
-        icon: <CheckCircle2 className="h-5 w-5 text-success" />,
-      });
-
       setTimeout(() => {
         navigate("/onboarding/address");
       }, 800);
@@ -94,7 +86,6 @@ export const OTPVerification = () => {
 
   const handleResend = () => {
     setResendTimer(30);
-    toast.success("OTP resent successfully!");
   };
 
   return (
@@ -103,7 +94,7 @@ export const OTPVerification = () => {
       subtitle={`Code sent to +91-${data.mobile.slice(-4).padStart(10, "X")}`}
     >
       <div className="space-y-6">
-        <div className="flex justify-center gap-3" onPaste={handlePaste}>
+        <div className="flex justify-center gap-2 sm:gap-3" onPaste={handlePaste}>
           {otp.map((digit, index) => (
             <Input
               key={index}
@@ -114,7 +105,7 @@ export const OTPVerification = () => {
               value={digit}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(index, e)}
-              className={`w-12 sm:w-14 h-12 sm:h-14 text-center text-xl sm:text-2xl font-bold rounded-2xl border-2 transition-all duration-300 ${
+              className={`w-10 sm:w-14 h-10 sm:h-14 text-center text-lg sm:text-2xl font-bold rounded-xl sm:rounded-2xl border-2 transition-all duration-300 ${
                 digit
                   ? "border-success bg-success/5 scale-105"
                   : "border-input hover:border-primary/50"

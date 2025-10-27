@@ -13,7 +13,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useOnboarding } from "@/contexts/OnboardingContext";
-import { toast } from "sonner";
 
 export const NomineeAndTerms = () => {
   const navigate = useNavigate();
@@ -49,10 +48,7 @@ export const NomineeAndTerms = () => {
   };
 
   const handleSubmit = () => {
-    if (!isFormValid()) {
-      toast.error("Please complete all required fields");
-      return;
-    }
+    if (!isFormValid()) return;
 
     setIsLoading(true);
     updateData({

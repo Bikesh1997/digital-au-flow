@@ -4,7 +4,6 @@ import { StepContainer } from "@/components/StepContainer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useOnboarding } from "@/contexts/OnboardingContext";
-import { toast } from "sonner";
 
 export const MobileVerification = () => {
   const navigate = useNavigate();
@@ -23,10 +22,7 @@ export const MobileVerification = () => {
   }, [mobile]);
 
   const handleSubmit = () => {
-    if (!isValid) {
-      toast.error("Please enter a valid 10-digit mobile number");
-      return;
-    }
+    if (!isValid) return;
 
     setIsLoading(true);
     updateData({ mobile });
@@ -34,7 +30,6 @@ export const MobileVerification = () => {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      toast.success("OTP sent successfully!");
       navigate("/onboarding/aadhaar");
     }, 1000);
   };

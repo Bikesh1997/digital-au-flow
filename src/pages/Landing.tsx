@@ -43,16 +43,16 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="flex gap-3 mt-6">
+          <div className="flex gap-2 sm:gap-3 mt-6">
             <Button
               onClick={() => navigate("/onboarding/mobile")}
-              className="flex-1 h-12 text-base font-semibold"
+              className="flex-1 h-10 sm:h-12 text-sm sm:text-base font-semibold px-3 sm:px-4"
             >
               Open Account
             </Button>
             <Button
               variant="outline"
-              className="flex-1 h-12 text-base font-semibold"
+              className="flex-1 h-10 sm:h-12 text-sm sm:text-base font-semibold px-3 sm:px-4"
               onClick={() => {
                 // Know more action
               }}

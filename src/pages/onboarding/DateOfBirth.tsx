@@ -4,7 +4,6 @@ import { StepContainer } from "@/components/StepContainer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useOnboarding } from "@/contexts/OnboardingContext";
-import { toast } from "sonner";
 
 export const DateOfBirth = () => {
   const navigate = useNavigate();
@@ -47,10 +46,7 @@ export const DateOfBirth = () => {
   }, [dob]);
 
   const handleSubmit = () => {
-    if (!isValid) {
-      toast.error(errorMessage || "Please enter a valid date of birth");
-      return;
-    }
+    if (!isValid) return;
 
     updateData({ dob });
     setTimeout(() => {
@@ -72,12 +68,27 @@ export const DateOfBirth = () => {
       <div className="space-y-4">
         <div className="space-y-2">
           <Input
-            type="date"
+            type="text"
+            inputMode="numeric"
+            placeholder="DD/MM/YYYY"
             value={dob}
-            onChange={(e) => setDob(e.target.value)}
+            onChange={(e) => {
+              let value = e.target.value.replace(/\D/g, '');
+              if (value.length >= 2) value = value.slice(0, 2) + '/' + value.slice(2);
+              if (value.length >= 5) value = value.slice(0, 5) + '/' + value.slice(5, 9);
+              if (value.length <= 10) {
+                const parts = value.split('/');
+                if (parts.length === 3 && parts[0].length === 2 && parts[1].length === 2 && parts[2].length === 4) {
+                  const isoDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
+                  setDob(isoDate);
+                } else {
+                  setDob(value);
+                }
+              }
+            }}
             onKeyPress={handleKeyPress}
-            max={new Date().toISOString().split("T")[0]}
-            className={`text-lg h-14 rounded-2xl border-2 transition-all duration-300 ${
+            maxLength={10}
+            className={`text-lg h-14 rounded-2xl border-2 transition-all duration-300 text-center ${
               dob.length === 0
                 ? "border-input"
                 : isValid

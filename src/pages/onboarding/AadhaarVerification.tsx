@@ -4,7 +4,6 @@ import { StepContainer } from "@/components/StepContainer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useOnboarding } from "@/contexts/OnboardingContext";
-import { toast } from "sonner";
 
 export const AadhaarVerification = () => {
   const navigate = useNavigate();
@@ -35,17 +34,13 @@ export const AadhaarVerification = () => {
   };
 
   const handleSubmit = () => {
-    if (!isValid) {
-      toast.error("Please enter a valid 12-digit Aadhaar number");
-      return;
-    }
+    if (!isValid) return;
 
     setIsLoading(true);
     updateData({ aadhaar: aadhaar.replace(/\s/g, "") });
 
     setTimeout(() => {
       setIsLoading(false);
-      toast.success("Aadhaar verified successfully!");
       navigate("/onboarding/pan");
     }, 1000);
   };
