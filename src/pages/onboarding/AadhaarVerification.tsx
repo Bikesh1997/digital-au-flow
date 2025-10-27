@@ -41,7 +41,7 @@ export const AadhaarVerification = () => {
 
     setTimeout(() => {
       setIsLoading(false);
-      navigate("/onboarding/pan");
+      navigate("/onboarding/otp");
     }, 1000);
   };
 

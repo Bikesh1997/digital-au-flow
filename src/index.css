@@ -18,7 +18,7 @@ All colors MUST be HSL.
     --popover-foreground: 222.2 47.4% 11.2%;
 
     /* AU Bank Brand Colors */
-    --primary: 19 89% 52%; /* #EA671C - Bright Orange */
+    --primary: 291 45% 30%; /* #6D266D - Deep Purple */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 288 48% 31%; /* #6C256C - Deep Purple */
@@ -40,7 +40,7 @@ All colors MUST be HSL.
     --input: 220 13% 91%;
     --input-valid: 158 82% 32%;
     --input-invalid: 0 84.2% 60.2%;
-    --ring: 19 89% 52%;
+    --ring: 291 45% 30%;
 
     --radius: 1rem;
 
@@ -58,7 +58,7 @@ All colors MUST be HSL.
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 19 89% 52%;
+    --primary: 291 45% 30%;
     --primary-foreground: 0 0% 100%;
     --secondary: 288 48% 31%;
     --secondary-foreground: 0 0% 100%;
@@ -70,7 +70,7 @@ All colors MUST be HSL.
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 19 89% 52%;
+    --ring: 291 45% 30%;
   }
 }
 
