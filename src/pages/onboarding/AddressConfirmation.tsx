@@ -58,11 +58,11 @@ export const AddressConfirmation = () => {
           </div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-success/10 border border-success">
+        <div className="p-4 rounded-2xl border border-success" style={{ backgroundColor: '#0E945C' }}>
           <div className="flex items-start gap-3">
-            <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-success font-medium leading-relaxed">
-              Address verified. Your Debit Card and Cheque Book will be sent to your registered
+            <CheckCircle2 className="h-5 w-5 flex-shrink-0 mt-0.5" style={{ color: '#FFFFFF' }} />
+            <p className="text-sm font-medium leading-relaxed" style={{ color: '#FFFFFF' }}>
+              ✅ Address verified. Your Debit Card and Cheque Book will be sent to your registered
               address.
             </p>
           </div>

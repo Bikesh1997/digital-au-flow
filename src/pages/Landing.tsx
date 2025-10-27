@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Shield, Zap } from "lucide-react";
+import { CheckCircle2, Shield, Zap, Building2 } from "lucide-react";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -9,7 +9,10 @@ const Landing = () => {
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       {/* Header Section */}
       <div className="bg-[#6D266D] text-white py-12 px-6">
-        <div className="max-w-4xl mx-auto text-center space-y-3 animate-fade-in">
+        <div className="max-w-4xl mx-auto space-y-3 animate-fade-in">
+          <div className="flex justify-start mb-4">
+            <img src="/src/assets/logo.png" alt="AU Finance" className="h-12" />
+          </div>
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
             Welcome to AU Finance
           </h1>
@@ -24,7 +27,7 @@ const Landing = () => {
         <div className="bg-card border border-border rounded-3xl p-8 shadow-xl animate-slide-in">
           <div className="flex items-start gap-6">
             <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 shadow-lg">
-              <span className="text-2xl">🏦</span>
+              <Building2 className="h-8 w-8 text-white" />
             </div>
             <div className="flex-1 space-y-4">
               <div>
@@ -40,10 +43,9 @@ const Landing = () => {
                 <Button
                   size="lg"
                   onClick={() => navigate("/onboarding/mobile")}
-                  className="flex-1 gap-2"
+                  className="flex-1"
                 >
                   Open Account
-                  <ArrowRight className="h-5 w-5" />
                 </Button>
                 <Button
                   size="lg"

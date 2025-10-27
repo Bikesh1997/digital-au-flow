@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useOnboarding } from "@/contexts/OnboardingContext";
 import { CheckCircle2, PartyPopper, CreditCard, Shield } from "lucide-react";
-import confetti from "canvas-confetti";
 
 export const AccountSuccess = () => {
   const navigate = useNavigate();
@@ -11,32 +10,6 @@ export const AccountSuccess = () => {
 
   useEffect(() => {
     setCurrentStep(7);
-
-    // Trigger confetti
-    const duration = 3000;
-    const end = Date.now() + duration;
-
-    const frame = () => {
-      confetti({
-        particleCount: 3,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 },
-        colors: ["#EA671C", "#6C256C", "#0E945C"],
-      });
-      confetti({
-        particleCount: 3,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 },
-        colors: ["#EA671C", "#6C256C", "#0E945C"],
-      });
-
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    };
-    frame();
   }, [setCurrentStep]);
 
   return (
