@@ -66,14 +66,7 @@ export const ProgressBar = () => {
             {steps.map((step, index) => (
               <div key={step.number} className="flex items-center flex-1">
                 <div className="flex items-center gap-2 flex-1">
-                  <div className={`h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                    step.number <= currentStep 
-                      ? 'bg-primary text-white scale-110' 
-                      : 'bg-muted text-muted-foreground'
-                  }`}>
-                    {/* Remove number display */}
-                  </div>
-                  <span className={`text-xs font-medium hidden sm:inline transition-colors ${
+                  <span className={`text-xs font-medium transition-colors ${
                     step.number <= currentStep ? 'text-foreground' : 'text-muted-foreground'
                   }`}>
                     {step.label}
