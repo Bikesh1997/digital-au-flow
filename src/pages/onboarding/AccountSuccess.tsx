@@ -16,7 +16,7 @@ export const AccountSuccess = () => {
     <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       <div className="w-full max-w-md space-y-8 animate-fade-in">
         {/* Success Icon */}
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <div className="relative">
             <div className="h-24 w-24 rounded-full bg-gradient-to-br from-success to-success/70 flex items-center justify-center shadow-xl animate-success-pulse">
               <CheckCircle2 className="h-12 w-12 text-white" />
@@ -25,7 +25,7 @@ export const AccountSuccess = () => {
               <PartyPopper className="h-8 w-8 text-primary animate-bounce" />
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Success Message */}
         <div className="text-center space-y-3">

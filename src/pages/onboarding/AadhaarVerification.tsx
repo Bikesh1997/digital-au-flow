@@ -64,6 +64,7 @@ export const AadhaarVerification = () => {
       <div className="space-y-4">
         <div className="space-y-2">
           <Input
+           inputMode="numeric"
             type="text"
             placeholder="1234 5678 9012"
             value={aadhaar}

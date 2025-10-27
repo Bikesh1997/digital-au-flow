@@ -59,6 +59,7 @@ export const MobileVerification = () => {
             <Input
               type="tel"
               placeholder="Enter mobile number"
+               inputMode="numeric"
               value={mobile}
               onChange={(e) => setMobile(e.target.value.replace(/\D/g, "").slice(0, 10))}
               onKeyPress={handleKeyPress}
