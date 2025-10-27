@@ -8,7 +8,7 @@ export const ProgressBar = () => {
   const progress = ((currentStep + 1) / totalSteps) * 100;
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 ">
+    <div className="fixed top-0 left-0 w-full bg-white z-50">
       <div className="flex items-center px-4 py-3">
         <button
           onClick={() => navigate(-1)}

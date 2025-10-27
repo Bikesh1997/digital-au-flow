@@ -33,6 +33,9 @@ const App = () => (
               element={
                 <>
                   <ProgressBar />
+
+                  <div style={{ marginTop: "35px" }}>
+
                   <Routes>
                     <Route path="mobile" element={<MobileVerification />} />
                     <Route path="aadhaar" element={<AadhaarVerification />} />
@@ -46,6 +49,8 @@ const App = () => (
                     <Route path="success" element={<AccountSuccess />} />
                     <Route path="kyc-prompt" element={<KYCPrompt />} />
                   </Routes>
+                  </div>
+
                 </>
               }
             />

@@ -64,7 +64,7 @@ export const KYCPrompt = () => {
               </svg>
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-foreground">You are verified ✓</h1>
+          <h1 className="text-3xl font-bold text-foreground">KYC verified successfully</h1>
           <p className="text-muted-foreground leading-relaxed">
             Your KYC verification has been completed successfully. You can now proceed with your account setup.
           </p>
