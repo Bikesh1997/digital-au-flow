@@ -25,16 +25,6 @@ export const PANVerification = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toUpperCase().slice(0, 10);
     setPan(value);
-    
-    // Update input mode dynamically based on position
-    if (inputRef.current) {
-      const len = value.length;
-      if (len < 5 || len === 9) {
-        inputRef.current.inputMode = 'text';
-      } else if (len >= 5 && len < 9) {
-        inputRef.current.inputMode = 'numeric';
-      }
-    }
   };
 
   const handleSubmit = () => {
