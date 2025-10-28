@@ -53,7 +53,7 @@ export const AadhaarVerification = () => {
 
   return (
     <StepContainer
-      title="Enter your Aadhaar Number"
+      title="Enter Aadhaar Number"
       subtitle="Enter your 12-digit Aadhaar number"
     >
       <div className="space-y-4">

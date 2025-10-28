@@ -63,7 +63,7 @@ export const DateOfBirth = () => {
 
   return (
     <StepContainer
-      title="What's your date of birth?"
+      title="Enter Birth Date"
       subtitle="You must be at least 18 years old to open a savings account"
     >
       <div className="space-y-4">

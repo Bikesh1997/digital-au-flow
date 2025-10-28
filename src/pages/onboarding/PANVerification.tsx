@@ -58,7 +58,7 @@ export const PANVerification = () => {
   return (
     <StepContainer
       title="Enter your PAN"
-      subtitle="Enter PAN in format AAAAA1111A"
+      subtitle=""
     >
       <div className="space-y-4">
         <div className="space-y-2">

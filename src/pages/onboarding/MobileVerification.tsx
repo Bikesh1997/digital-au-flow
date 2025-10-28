@@ -42,7 +42,7 @@ export const MobileVerification = () => {
 
   return (
     <StepContainer
-      title="Verify your Aadhaar-linked mobile number"
+      title="Enter Aadhaar linked mobile number"
       subtitle="We'll send an OTP to this number for verification"
     >
       <div className="space-y-4">
