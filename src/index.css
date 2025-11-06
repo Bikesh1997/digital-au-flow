@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 41 100% 92%; /* #FFF2D5 - Card Background */
+    --background: 210 100% 98%; /* #F6FAFF - Global Background */
     --foreground: 222.2 47.4% 11.2%;
 
     --card: 0 0% 100%;
@@ -29,6 +29,8 @@ All colors MUST be HSL.
 
     --muted: 41 100% 92%; /* #FFF2D5 - Hint BG */
     --muted-foreground: 220 9% 46%;
+    
+    --progress-unfilled: 0 0% 80%; /* #CBCBCB - Progress Bar Unfilled */
 
     --accent: 41 80% 85%;
     --accent-foreground: 222.2 47.4% 11.2%;
