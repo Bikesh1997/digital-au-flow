@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 300 22% 96%; /* #F6F1F6 */
+    --background: 41 100% 92%; /* #FFF2D5 - Card Background */
     --foreground: 222.2 47.4% 11.2%;
 
     --card: 0 0% 100%;
@@ -17,20 +17,20 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
 
-    /* AU Bank Brand Colors */
-    --primary: 21 90% 52%; /* #EA671C - Orange */
+    /* Updated Brand Colors */
+    --primary: 28 92% 59%; /* #F78F35 - CTA Buttons & Progress Bar */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 291 45% 30%; /* #6D266D - Deep Purple - Progress Bar */
+    --secondary: 168 100% 26%; /* #00866B - Purple Replacement & Active Input */
     --secondary-foreground: 0 0% 100%;
 
-    --success: 158 82% 32%; /* #0E945C - Green */
+    --success: 166 65% 38%; /* #229E82 - Banner Color */
     --success-foreground: 0 0% 100%;
 
-    --muted: 300 22% 93%; /* #EDE5ED - Hint BG */
+    --muted: 41 100% 92%; /* #FFF2D5 - Hint BG */
     --muted-foreground: 220 9% 46%;
 
-    --accent: 300 22% 93%;
+    --accent: 41 80% 85%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -38,9 +38,9 @@ All colors MUST be HSL.
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --input-valid: 158 82% 32%;
+    --input-valid: 168 100% 26%;
     --input-invalid: 0 84.2% 60.2%;
-    --ring: 291 45% 30%;
+    --ring: 168 100% 26%;
 
     --radius: 1rem;
 
@@ -58,9 +58,9 @@ All colors MUST be HSL.
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 21 90% 52%;
+    --primary: 28 92% 59%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 291 45% 30%;
+    --secondary: 168 100% 26%;
     --secondary-foreground: 0 0% 100%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -70,7 +70,7 @@ All colors MUST be HSL.
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 291 45% 30%;
+    --ring: 168 100% 26%;
   }
 }
 
