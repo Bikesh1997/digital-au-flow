@@ -13,15 +13,14 @@ const Landing = () => {
         <div className="flex items-center gap-2">
           {/* <Landmark className="w-8 h-8 text-primary" /> */}
           {/* <span className="font-bold text-xl">AU Small Finance Bank</span> */}
-          <div className="flex items-center gap-2">
-          <img src='/logo.png' alt="AU Small Finance Bank" className="h-10" />
-        </div>        </div>
+          <img src="/logo.png" alt="Ujjivan Small Finance Bank" className="h-12" />
+        </div>
       </header>
 
       {/* Hero Section */}
       <div className="bg-secondary text-secondary-foreground px-6 py-12 mb-8">
         <div className="max-w-lg mx-auto text-center">
-          <h1 className="text-3xl font-bold mb-3">Welcome to AU Finance</h1>
+          <h1 className="text-3xl font-bold mb-3">Welcome to Ujjivan Small Finance Bank</h1>
           <p className="text-secondary-foreground/90">
             Quick setup, Secure and Safe.
           </p>
