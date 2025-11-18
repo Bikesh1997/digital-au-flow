@@ -51,7 +51,7 @@ export const AccountSuccess = () => {
               <span className="text-xl font-bold text-white">AU</span>
             </div>
             <div>
-              <p className="text-sm text-white">AU Small Finance Bank</p>
+              <p className="text-sm text-white">UjjivanSmall Finance Bank</p>
               <p className="font-semibold text-white">Digital Savings Account</p>
             </div>
           </div>

@@ -34,7 +34,7 @@ export const ProductSelection = () => {
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-bold">AU Digital Savings</h3>
+                <h3 className="text-lg font-bold">UjjivanDigital Savings</h3>
               </div>
               <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">
                 Your Choice
@@ -55,7 +55,7 @@ export const ProductSelection = () => {
             </li>
             <li className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
-              <span>AU Value benefits included</span>
+              <span>UjjivanValue benefits included</span>
             </li>
           </ul>
         </div>
@@ -72,7 +72,7 @@ export const ProductSelection = () => {
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <Crown className="h-5 w-5 text-secondary" />
-                <h3 className="text-lg font-bold">AU Digital Savings Premium</h3>
+                <h3 className="text-lg font-bold">UjjivanDigital Savings Premium</h3>
               </div>
               <div className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">
                 Popular

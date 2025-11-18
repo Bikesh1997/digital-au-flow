@@ -81,7 +81,7 @@ export const MobileVerification = () => {
         </Button>
 
         <p className="text-sm text-muted-foreground text-center">
-          By proceeding, you agree to receive SMS updates from AU Bank
+          By proceeding, you agree to receive SMS updates from UjjivanBank
         </p>
       </div>
     </StepContainer>

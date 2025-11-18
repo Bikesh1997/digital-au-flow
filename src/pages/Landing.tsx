@@ -12,7 +12,7 @@ const Landing = () => {
       <header className="px-6 py-4">
         <div className="flex items-center gap-2">
           {/* <Landmark className="w-8 h-8 text-primary" /> */}
-          {/* <span className="font-bold text-xl">AU Small Finance Bank</span> */}
+          {/* <span className="font-bold text-xl">UjjivanSmall Finance Bank</span> */}
           <img 
                       src={`${process.env.NODE_ENV === 'production' ? '/ujjivan-finance-saving/' : ''}logo.png`}
       className="h-12" />

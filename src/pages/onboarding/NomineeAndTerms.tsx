@@ -163,7 +163,7 @@ export const NomineeAndTerms = () => {
               <button className="text-primary font-semibold hover:underline">
                 terms and conditions
               </button>{" "}
-              related to AU Small Finance Bank and confirm that I am a citizen of India.
+              related to UjjivanSmall Finance Bank and confirm that I am a citizen of India.
             </label>
           </div>
         </div>
